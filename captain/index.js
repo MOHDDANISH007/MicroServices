@@ -5,6 +5,13 @@ const captainRoute = require('./routes/captain.routes.js')
 const cookieParser = require('cookie-parser')
 const connectDB = require('./DB/db.js')
 
+const RabbitMQ = require('./service/rabbit')
+RabbitMQ.connect()
+
+
+
+
+
 connectDB()
 
 const app = express()

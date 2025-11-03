@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+const { subscribeToQueue } = require('../service/rabbit')
+
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // ---------------- Register Captain ----------------
@@ -119,3 +121,8 @@ module.exports.toggleAvailability = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+subscribeToQueue("new-ride", (data) => {
+  console.log(data);
+});
