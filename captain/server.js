@@ -4,6 +4,6 @@ const app = require('./index.js')
 const server = http.createServer(app)
 
 
-server.listen(3001, () => {
-    console.log('User Service running on port 3001')
+server.listen(3002, () => {
+    console.log('Captain Service running on port 3002')
 })
